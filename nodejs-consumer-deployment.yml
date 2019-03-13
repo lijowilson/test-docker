@@ -1,0 +1,26 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    io.kompose.service: nodejs-kafka-consumer
+  name: nodejs-kafka-consumer
+spec:
+  replicas: 1
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        io.kompose.service: nodejs-kafka-consumer
+    spec:
+      containers:
+      - env:
+        image: us.gcr.io/walmart-poc-234315/nodejs-kafka-consumer:1.0
+        name: nodejs-kafka-consumer
+        ports:
+        - containerPort: 8080
+        resources: {}
+      hostname: nodejs-kafka-consumer
+      restartPolicy: Always
+status: {}

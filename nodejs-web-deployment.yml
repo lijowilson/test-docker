@@ -1,0 +1,26 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    io.kompose.service: nodejs-web
+  name: nodejs-web
+spec:
+  replicas: 1
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        io.kompose.service: nodejs-web
+    spec:
+      containers:
+      - env:
+        image: us.gcr.io/walmart-poc-234315/nodejs-web:1.0
+        name: nodejs-web
+        ports:
+        - containerPort: 8080
+        resources: {}
+      hostname: nodejs-web
+      restartPolicy: Always
+status: {}
